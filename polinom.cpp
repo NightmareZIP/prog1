@@ -26,7 +26,13 @@ ostream& operator<< (ostream& os, TPolinom& p){
 
     }
     else{
-        os<<p.a<<"(x-x1"<<")"<<"(x-x2"<<")";
+        double* roots = p.findRoot();
+        if (roots[0] < 0 ){
+            os<<"No roots";
+        }
+        else{
+            os<<p.a<<"(x-"<<roots[1]<<")"<<"(x-"<<roots[2]<<")";
+        }
     }
     return os;
 }
@@ -36,17 +42,15 @@ number TPolinom::value(number x){
 void  TPolinom::setPrintMode(EPrintMode m){
    printMode = m;
 }
-void TPolinom::findRoot(){
+double * TPolinom::findRoot(){
     double  D;
+    static  double result[3];
     D = b*b-4*a*c;
-    if (D < 0){
-        cout << "No roots"<<endl;
+    result[0] = D;
+    if (D >= 0) {
+        result[1] = (-b-sqrt(D))/(2*a);
+        result[2] = (-b+sqrt(D))/(2*a);
     }
-    else if (D == 0){
-        cout << (-b)/(2*a)<<endl;
-    }
-    else {
-        cout << "first root "<<(-b-sqrt(D))/(2*a)<<endl;
-        cout << "first root "<<(-b+sqrt(D))/(2*a)<<endl;
-    }
+    return result;
+
 }
