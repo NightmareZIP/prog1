@@ -1,4 +1,5 @@
 #include <application.h>
+#include <math.h>       /* sqrt */
 
 
 int main()

@@ -9,9 +9,9 @@ CONFIG -= app_bundle
 
 SOURCES += \
         application.cpp \
-        complex.cpp \
         main.cpp \
-        polinom.cpp
+        polinom.cpp \
+        rational.cpp
 
 CONFIG += lrelease
 CONFIG += embed_translations
@@ -23,6 +23,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     application.h \
-    complex.h \
     number.h \
-    polinom.h
+    polinom.h \
+    rational.h

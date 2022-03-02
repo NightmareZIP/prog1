@@ -45,7 +45,7 @@ int TApplication::exec()
                 break;
             case 3:{
                 TPolinom p(a, b, c);
-                double* roots;
+                number* roots;
                 roots = p.findRoot();
                 if (roots[0] < 0 ){
                     cout<<"No roots"<<endl;

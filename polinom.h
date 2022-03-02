@@ -21,7 +21,7 @@ public:
     friend ostream& operator<<(ostream&, TPolinom&);
     number value(number);
     void setPrintMode(EPrintMode);
-    double* findRoot();
+    number* findRoot();
 
 };
 

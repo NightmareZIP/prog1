@@ -7,17 +7,17 @@ TPolinom::TPolinom(number x, number y, number z)
     b = y;
     c = z;
     if (b >= 0){
-        first_sign = '+';
-    }
-    else{
-        first_sign = "";
-    }
-    if (c >=  0){
-        second_sign = '+';
-    }
-    else{
-        second_sign = "";
-    }
+            first_sign = '+';
+        }
+        else{
+            first_sign = "";
+        }
+        if (c >=  0){
+            second_sign = '+';
+        }
+        else{
+            second_sign = "";
+        }
 }
 ostream& operator<< (ostream& os, TPolinom& p){
     if (p.printMode == EPrintModeClassic){
@@ -26,8 +26,8 @@ ostream& operator<< (ostream& os, TPolinom& p){
 
     }
     else{
-        double* roots = p.findRoot();
-        if (roots[0] < 0 ){
+        number* roots = p.findRoot();
+        if (true){ //roots[0] < 0 ){
             os<<"No roots";
         }
         else{
@@ -42,14 +42,14 @@ number TPolinom::value(number x){
 void  TPolinom::setPrintMode(EPrintMode m){
    printMode = m;
 }
-double * TPolinom::findRoot(){
-    double  D;
-    static  double result[3];
-    D = b*b-4*a*c;
+number * TPolinom::findRoot(){
+    number  D;
+    static  number result[3];
+    D = b*b-a*c*4;
     result[0] = D;
     if (D >= 0) {
-        result[1] = (-b-sqrt(D))/(2*a);
-        result[2] = (-b+sqrt(D))/(2*a);
+        result[1] = (-b-sqrt(D))/(a*2);
+        result[2] = (-b+sqrt(D))/(a*2);
     }
     return result;
 
