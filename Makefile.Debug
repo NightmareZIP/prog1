@@ -135,13 +135,16 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean
 
 ####### Compile
 
-debug/application.o: application.cpp application.h
+debug/application.o: application.cpp application.h \
+		number.h \
+		polinom.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\application.o application.cpp
 
 debug/main.o: main.cpp application.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o main.cpp
 
-debug/polinom.o: polinom.cpp polinom.h
+debug/polinom.o: polinom.cpp polinom.h \
+		number.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\polinom.o polinom.cpp
 
 debug/qrc_qmake_qmake_qm_files.o: debug/qrc_qmake_qmake_qm_files.cpp 

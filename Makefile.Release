@@ -135,13 +135,16 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean
 
 ####### Compile
 
-release/application.o: application.cpp application.h
+release/application.o: application.cpp application.h \
+		number.h \
+		polinom.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\application.o application.cpp
 
 release/main.o: main.cpp application.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o main.cpp
 
-release/polinom.o: polinom.cpp polinom.h
+release/polinom.o: polinom.cpp polinom.h \
+		number.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\polinom.o polinom.cpp
 
 release/qrc_qmake_qmake_qm_files.o: release/qrc_qmake_qmake_qm_files.cpp 
