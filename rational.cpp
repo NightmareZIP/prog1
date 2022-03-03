@@ -80,7 +80,7 @@ TRational TRational::operator/(TRational c)
 }
 bool TRational::operator==(int c)
 {
-    return denominator == 1 && numerator == c;
+    return denominator*c == numerator ;
 }
 
 bool TRational::operator<(int c)
