@@ -16,12 +16,15 @@ class TPolinom
     EPrintMode printMode;
     number a,b,c;
     string first_sign, second_sign;
+
 public:
+    number D, first_root, second_root;
+
     TPolinom(number, number, number);
     friend ostream& operator<<(ostream&, TPolinom&);
     number value(number);
     void setPrintMode(EPrintMode);
-    number* findRoot();
+    void findRoot();
 
 };
 

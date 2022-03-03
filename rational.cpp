@@ -10,6 +10,7 @@ TRational::TRational(const int& up)
 {
     numerator = up;
     denominator = 1;
+    this->NOD();
 }
 void TRational::NOD(){
     int up = abs(numerator);
@@ -108,6 +109,12 @@ ostream& operator<<(ostream& os, TRational c){
 }
 istream& operator>>(istream& is, TRational& c){
     is>>c.numerator>>c.denominator;
+    while (c.denominator <= 0){
+        std::cout << "Denominator must be bigger than zero\n";
+        is>>c.numerator>>c.denominator;
+
+    }
+    c.NOD();
     return is;
 }
 

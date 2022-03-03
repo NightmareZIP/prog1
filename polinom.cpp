@@ -26,12 +26,12 @@ ostream& operator<< (ostream& os, TPolinom& p){
 
     }
     else{
-        number* roots = p.findRoot();
-        if (true){ //roots[0] < 0 ){
+        p.findRoot();
+        if (p.D < 0){
             os<<"No roots";
         }
         else{
-            os<<p.a<<"(x-"<<roots[1]<<")"<<"(x-"<<roots[2]<<")";
+            os<<p.a<<"(x-"<<p.first_root<<")"<<"(x-"<<p.second_root<<")";
         }
     }
     return os;
@@ -42,15 +42,14 @@ number TPolinom::value(number x){
 void  TPolinom::setPrintMode(EPrintMode m){
    printMode = m;
 }
-number * TPolinom::findRoot(){
-    number  D;
-    static  number result[3];
+void TPolinom::findRoot(){
     D = b*b-a*c*4;
-    result[0] = D;
     if (D >= 0) {
-        result[1] = (-b-sqrt(D))/(a*2);
-        result[2] = (-b+sqrt(D))/(a*2);
+        first_root = (-b-sqrt(D))/(a*2);
+        second_root = (-b+sqrt(D))/(a*2);
+        if (!(a*first_root*first_root+b*first_root+c == 0 && a*first_root*first_root+b*first_root+c == 0)){
+            D = -1; //На случай если истинные корни не принадлежат заданному множеству
+        }
     }
-    return result;
 
 }

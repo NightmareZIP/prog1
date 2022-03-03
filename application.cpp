@@ -45,13 +45,12 @@ int TApplication::exec()
                 break;
             case 3:{
                 TPolinom p(a, b, c);
-                number* roots;
-                roots = p.findRoot();
-                if (roots[0] < 0 ){
+                p.findRoot();
+                if (p.D < 0 ){
                     cout<<"No roots"<<endl;
                 }
                 else{
-                    cout<<"x1 = "<<roots[1]<<endl<<"x2 = "<<roots[2]<<endl;
+                    cout<<"x1 = "<<p.first_root<<endl<<"x2 = "<<p.second_root<<endl;
                 }
 
             }
